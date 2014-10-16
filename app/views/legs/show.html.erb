@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @leg.location.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @leg.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @leg.end_date %>
+</p>
+
+<p>
+  <strong>Trip:</strong>
+  <%= @leg.trip.name %>
+</p>
+
+<%= link_to 'Edit', edit_leg_path(@leg) %> |
+<%= link_to 'Back', legs_path %>
