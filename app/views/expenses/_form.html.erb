@@ -21,7 +21,6 @@
   </div>
   <div class="field">
     <%= f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }, {:include_blank => "Select Category"} %>
-
   </div>
   <div class="field">
     <%= f.label :date %><br>

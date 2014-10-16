@@ -1,10 +1,11 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
-  before_action :set_leg
+  before_action :set_leg, only: [:new, :create]
 
   # GET /expenses
   # GET /expenses.json
   def index
+    @leg = Leg.find(params[:leg_id])
     @expenses = @leg.expenses.all
   end
 
@@ -27,10 +28,9 @@ class ExpensesController < ApplicationController
   def create
     @expense = @leg.expenses.new(expense_params)
 
-
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to [@leg, @expense], notice: 'Expense was successfully created.' }
+        format.html { redirect_to [@expense], notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to leg_expense_path(@leg, @expense), notice: 'Expense was successfully updated.' }
+        format.html { redirect_to expense_path(@expense), notice: 'Expense was successfully updated.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit }
@@ -56,6 +56,7 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
+    @leg = @expense.leg
     @expense.destroy
     respond_to do |format|
       format.html { redirect_to leg_expenses_path(@leg), notice: 'Expense was successfully destroyed.' }

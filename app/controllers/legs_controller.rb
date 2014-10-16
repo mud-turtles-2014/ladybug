@@ -4,7 +4,8 @@ class LegsController < ApplicationController
   # GET /legs
   # GET /legs.json
   def index
-    @legs = Leg.all
+    @trip = Trip.find(params[:trip_id])
+    @legs = @trip.legs
   end
 
   # GET /legs/1
@@ -69,6 +70,11 @@ class LegsController < ApplicationController
     def set_leg
       @leg = Leg.find(params[:id])
     end
+
+    # def set_location ???
+      # @location = location.first_or_create
+      # @location.id for params
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leg_params
