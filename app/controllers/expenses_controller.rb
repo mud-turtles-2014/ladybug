@@ -1,10 +1,11 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_action :set_leg
 
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = @leg.expenses.all
   end
 
   # GET /expenses/1
@@ -24,11 +25,12 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    @expense = Expense.new(expense_params)
+    @expense = @leg.expenses.new(expense_params)
+
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to [@leg, @expense], notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
+        format.html { redirect_to leg_expense_path(@leg, @expense), notice: 'Expense was successfully updated.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to leg_expenses_path(@leg), notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +69,12 @@ class ExpensesController < ApplicationController
       @expense = Expense.find(params[:id])
     end
 
+    def set_leg
+      @leg = Leg.find(params[:leg_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:cost, :description, :category_id, :date, :leg_id)
+      params.require(:expense).permit(:cost, :description, :category_id, :date)
     end
 end

@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   resources :buddies
 
-  resources :expenses
-
   resources :categories
 
-  resources :legs
+  resources :legs do
+    resources :expenses
+  end
 
   resources :locations
 
