@@ -5,13 +5,15 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :legs do
-    resources :expenses
-  end
+
 
   resources :locations
 
-  resources :trips
+  resources :trips do
+    resources :legs, shallow: true do
+    resources :expenses, shallow: true
+  end  
+  end
 
   resources :users
 

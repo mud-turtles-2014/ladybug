@@ -14,6 +14,7 @@ class LegsController < ApplicationController
 
   # GET /legs/new
   def new
+    @trip = Trip.find(params[:trip_id])
     @leg = Leg.new
   end
 
@@ -24,7 +25,8 @@ class LegsController < ApplicationController
   # POST /legs
   # POST /legs.json
   def create
-    @leg = Leg.new(leg_params)
+    @trip = Trip.find(params[:trip_id])
+    @leg = @trip.legs.new(leg_params)
 
     respond_to do |format|
       if @leg.save
@@ -54,9 +56,10 @@ class LegsController < ApplicationController
   # DELETE /legs/1
   # DELETE /legs/1.json
   def destroy
+    @trip = @leg.trip
     @leg.destroy
     respond_to do |format|
-      format.html { redirect_to legs_url, notice: 'Leg was successfully destroyed.' }
+      format.html { redirect_to trip_legs_path(@trip), notice: 'Leg was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,6 @@ class LegsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leg_params
-      params.require(:leg).permit(:location_id, :start_date, :end_date, :trip_id)
+      params.require(:leg).permit(:location_id, :start_date, :end_date)
     end
 end
