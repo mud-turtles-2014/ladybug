@@ -14,10 +14,10 @@
   <tbody>
     <% @legs.each do |leg| %>
       <tr>
-        <td><%= leg.location %></td>
+        <td><%= leg.location.name %></td>
         <td><%= leg.start_date %></td>
         <td><%= leg.end_date %></td>
-        <td><%= leg.trip %></td>
+        <td><%= leg.trip.name %></td>
         <td><%= link_to 'Show', leg %></td>
         <td><%= link_to 'Edit', edit_leg_path(leg) %></td>
         <td><%= link_to 'Destroy', leg, method: :delete, data: { confirm: 'Are you sure?' } %></td>

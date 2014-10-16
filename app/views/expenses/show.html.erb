@@ -12,7 +12,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @expense.category %>
+  <%= @expense.category.name %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Leg:</strong>
-  <%= @expense.leg %>
+  <%= @expense.leg.location.name %>
 </p>
 
 <%= link_to 'Edit', edit_expense_path(@expense) %> |

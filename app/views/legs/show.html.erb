@@ -2,7 +2,7 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @leg.location %>
+  <%= @leg.location.name %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Trip:</strong>
-  <%= @leg.trip %>
+  <%= @leg.trip.name %>
 </p>
 
 <%= link_to 'Edit', edit_leg_path(@leg) %> |

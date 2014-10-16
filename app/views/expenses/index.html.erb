@@ -8,7 +8,7 @@
       <th>Category</th>
       <th>Date</th>
       <th>Leg</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,11 +16,10 @@
     <% @expenses.each do |expense| %>
       <tr>
         <td><%= expense.cost %></td>
-        <td><%= expense.description %></td>
-        <td><%= expense.category %></td>
+        <td><%= link_to expense.description, expense %></td>
+        <td><%= expense.category.name %></td>
         <td><%= expense.date %></td>
-        <td><%= expense.leg %></td>
-        <td><%= link_to 'Show', expense %></td>
+        <td><%= expense.leg.location.name %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -12,8 +12,8 @@
   <tbody>
     <% @expense_buddies.each do |expense_buddy| %>
       <tr>
-        <td><%= expense_buddy.buddy %></td>
-        <td><%= expense_buddy.expense %></td>
+        <td><%= expense_buddy.buddy.name %></td>
+        <td><%= expense_buddy.expense.description %></td>
         <td><%= link_to 'Show', expense_buddy %></td>
         <td><%= link_to 'Edit', edit_expense_buddy_path(expense_buddy) %></td>
         <td><%= link_to 'Destroy', expense_buddy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
