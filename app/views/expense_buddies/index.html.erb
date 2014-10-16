@@ -1,0 +1,27 @@
+<h1>Listing expense_buddies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Buddy</th>
+      <th>Expense</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expense_buddies.each do |expense_buddy| %>
+      <tr>
+        <td><%= expense_buddy.buddy %></td>
+        <td><%= expense_buddy.expense %></td>
+        <td><%= link_to 'Show', expense_buddy %></td>
+        <td><%= link_to 'Edit', edit_expense_buddy_path(expense_buddy) %></td>
+        <td><%= link_to 'Destroy', expense_buddy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Expense buddy', new_expense_buddy_path %>
