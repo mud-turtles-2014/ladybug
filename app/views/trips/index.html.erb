@@ -17,8 +17,6 @@
       <th>Name</th>
       <th>Description</th>
       <th>Budget</th>
-      <th>Is published</th>
-      <th>Is private</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -27,11 +25,9 @@
     <% @trips.each do |trip| %>
       <tr>
         <td><%= trip.user.username %></td>
-        <td><%= link_to trip.name, trip %></td>
+        <td><%= link_to trip.name, trip_legs_path(trip) %></td>
         <td><%= trip.description %></td>
         <td><%= trip.budget %></td>
-        <td><%= trip.is_published %></td>
-        <td><%= trip.is_private %></td>
         <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
         <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
