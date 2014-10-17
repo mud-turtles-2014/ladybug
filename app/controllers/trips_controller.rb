@@ -21,6 +21,7 @@ class TripsController < ApplicationController
     @trip.legs << Leg.new
     @trip.legs.first.expenses << Expense.new
     @trip.buddies << Buddy.new
+    @trip.buddies.first.expense_buddies << ExpenseBuddy.new
   end
 
   # GET /trips/1/edit
@@ -77,6 +78,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private, legs_attributes: [:location_id, :start_date, :end_date, expenses_attributes: [:cost, :description, :category_id, :date]], buddies_attributes: [:name])
+      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private, legs_attributes: [:location_id, :start_date, :end_date, expenses_attributes: [:cost, :description, :category_id, :date, expense_buddies_attributes: [:buddy_id]]], buddies_attributes: [:name])
     end
 end

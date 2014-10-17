@@ -1,0 +1,8 @@
+<fieldset>
+  <div class="field">
+    <%= f.select :buddy_id, @trip.buddies.all.collect {|buddy| [ buddy.name, buddy.id ] }, {:include_blank => "Select Buddy"} %>
+  </div>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Buddy" %>
+</fieldset>
+
