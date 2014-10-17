@@ -1,3 +1,177 @@
+currency_codes = [
+"AED",
+"AFN",
+"ALL",
+"AMD",
+"ANG",
+"AOA",
+"ARS",
+"AUD",
+"AWG",
+"AZN",
+"BAM",
+"BBD",
+"BDT",
+"BGN",
+"BHD",
+"BIF",
+"BMD",
+"BND",
+"BOB",
+"BRL",
+"BSD",
+"BTC",
+"BTN",
+"BWP",
+"BYR",
+"BZD",
+"CAD",
+"CDF",
+"CHF",
+"CLF",
+"CLP",
+"CNY",
+"COP",
+"CRC",
+"CUP",
+"CVE",
+"CZK",
+"DJF",
+"DKK",
+"DOP",
+"DZD",
+"EEK",
+"EGP",
+"ERN",
+"ETB",
+"EUR",
+"FJD",
+"FKP",
+"GBP",
+"GEL",
+"GGP",
+"GHS",
+"GIP",
+"GMD",
+"GNF",
+"GTQ",
+"GYD",
+"HKD",
+"HNL",
+"HRK",
+"HTG",
+"HUF",
+"IDR",
+"ILS",
+"IMP",
+"INR",
+"IQD",
+"IRR",
+"ISK",
+"JEP",
+"JMD",
+"JOD",
+"JPY",
+"KES",
+"KGS",
+"KHR",
+"KMF",
+"KPW",
+"KRW",
+"KWD",
+"KYD",
+"KZT",
+"LAK",
+"LBP",
+"LKR",
+"LRD",
+"LSL",
+"LTL",
+"LVL",
+"LYD",
+"MAD",
+"MDL",
+"MGA",
+"MKD",
+"MMK",
+"MNT",
+"MOP",
+"MRO",
+"MTL",
+"MUR",
+"MVR",
+"MWK",
+"MXN",
+"MYR",
+"MZN",
+"NAD",
+"NGN",
+"NIO",
+"NOK",
+"NPR",
+"NZD",
+"OMR",
+"PAB",
+"PEN",
+"PGK",
+"PHP",
+"PKR",
+"PLN",
+"PYG",
+"QAR",
+"RON",
+"RSD",
+"RUB",
+"RWF",
+"SAR",
+"SBD",
+"SCR",
+"SDG",
+"SEK",
+"SGD",
+"SHP",
+"SLL",
+"SOS",
+"SRD",
+"STD",
+"SVC",
+"SYP",
+"SZL",
+"THB",
+"TJS",
+"TMT",
+"TND",
+"TOP",
+"TRY",
+"TTD",
+"TWD",
+"TZS",
+"UAH",
+"UGX",
+"USD",
+"UYU",
+"UZS",
+"VEF",
+"VND",
+"VUV",
+"WST",
+"XAF",
+"XAG",
+"XAU",
+"XCD",
+"XDR",
+"XOF",
+"XPF",
+"YER",
+"ZAR",
+"ZMK",
+"ZMW",
+"ZWL",
+]
+
+currency_codes.each {|code| Currency.create(code: code) }
+
+
 mich = User.create(username:"michelle", password:"password", password_confirmation:"password", first_name:"Michelle", last_name:"Chu", email:"michelle@gmail.com")
 sarah = User.create(username:"sarah", password:"password", password_confirmation:"password", first_name:"Sarah", last_name:"Taurchini", email:"sarah@gmail.com")
 nic = User.create(username:"nicolle", password:"password", password_confirmation:"password", first_name:"Nicolle", last_name:"Quintero", email:"nicolle@gmail.com")
@@ -38,17 +212,17 @@ shopping = Category.create(name:"Shopping")
 activities = Category.create(name:"Activities")
 misc = Category.create(name:"Miscellaneous")
 
-whattaburger = Expense.create(cost:30.50, description:"Lunch at whattaburger", category: food, leg: texan_vacay_1, date: Time.now)
-rodeo = Expense.create(cost:112, description:"Rodeo night show", category: activities, leg: texan_vacay_2, date: Time.now)
-barn = Expense.create(cost:400, description:"Hotel stay at the Barn", category: housing, leg: texan_vacay_3, date: Time.now) 
+whattaburger = Expense.create(currency_id: 1, cost:30.50, description:"Lunch at whattaburger", category: food, leg: texan_vacay_1, date: Time.now)
+rodeo = Expense.create(currency_id: 1,cost:112, description:"Rodeo night show", category: activities, leg: texan_vacay_2, date: Time.now)
+barn = Expense.create(currency_id: 1,cost:400, description:"Hotel stay at the Barn", category: housing, leg: texan_vacay_3, date: Time.now)
 
-sad_happy_masks = Expense.create(cost:44.99, description:"Sad face, happy face wall decor", category: shopping, leg: actors_delight_1, date: Time.now)
-improv_class = Expense.create(cost:432, description:"Week long improv class", category: activities, leg: actors_delight_2, date: Time.now)
-mcdonalds = Expense.create(cost:12, description:"McDonalds dinner", category: food, leg: actors_delight_3, date: Time.now)
+sad_happy_masks = Expense.create(currency_id: 1,cost:44.99, description:"Sad face, happy face wall decor", category: shopping, leg: actors_delight_1, date: Time.now)
+improv_class = Expense.create(currency_id: 2,cost:432, description:"Week long improv class", category: activities, leg: actors_delight_2, date: Time.now)
+mcdonalds = Expense.create(currency_id: 2, cost:12, description:"McDonalds dinner", category: food, leg: actors_delight_3, date: Time.now)
 
-wine = Expense.create(cost:19.99, description:"White wine bottle as gift for boyfriend", category: shopping, leg: euro_trip_1, date: Time.now)
-pasta = Expense.create(cost:49.59, description:"Dinner at pasta place", category: food, leg: euro_trip_2, date: Time.now)
-bungee_jumping = Expense.create(cost:49.59, description:"Bungee jumping from the colleseum - bad call", category: food, leg: euro_trip_3, date: Time.now)
+wine = Expense.create(currency_id: 3,cost:19.99, description:"White wine bottle as gift for boyfriend", category: shopping, leg: euro_trip_1, date: Time.now)
+pasta = Expense.create(currency_id: 3,cost:49.59, description:"Dinner at pasta place", category: food, leg: euro_trip_2, date: Time.now)
+bungee_jumping = Expense.create(currency_id: 5, cost:49.59, description:"Bungee jumping from the colleseum - bad call", category: food, leg: euro_trip_3, date: Time.now)
 
 texan_vacay_buddy_1 = Buddy.create(name:"Steph")
 texan_vacay_buddy_2 = Buddy.create(name:"Anthony")
@@ -71,3 +245,4 @@ ExpenseBuddy.create(buddy: actors_delight_buddy_2, expense: mcdonalds)
 ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: pasta)
 ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: bungee_jumping)
 ExpenseBuddy.create(buddy: euro_trip_buddy_2, expense: bungee_jumping)
+

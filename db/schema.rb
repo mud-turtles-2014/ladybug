@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016015551) do
+ActiveRecord::Schema.define(version: 20141016215403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20141016015551) do
 
   create_table "categories", force: true do |t|
     t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "currencies", force: true do |t|
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +50,7 @@ ActiveRecord::Schema.define(version: 20141016015551) do
     t.integer  "category_id", null: false
     t.date     "date",        null: false
     t.integer  "leg_id",      null: false
+    t.integer  "currency_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,8 +60,8 @@ ActiveRecord::Schema.define(version: 20141016015551) do
 
   create_table "legs", force: true do |t|
     t.integer  "location_id", null: false
-    t.date     "start_date",  null: false
-    t.date     "end_date",    null: false
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "trip_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"

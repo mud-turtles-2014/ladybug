@@ -6,6 +6,7 @@ class CreateExpenses < ActiveRecord::Migration
       t.references :category, index: true, null: false
       t.date :date, null: false
       t.references :leg, index: true, null: false
+      t.references :currency
 
       t.timestamps
     end

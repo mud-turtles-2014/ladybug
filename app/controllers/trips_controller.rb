@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  respond_to :html, :js
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   # GET /trips
@@ -17,6 +18,7 @@ class TripsController < ApplicationController
   def new
     @current_user = current_user
     @trip = @current_user.trips.new
+    @leg = @trip.legs.new
   end
 
   # GET /trips/1/edit
@@ -26,19 +28,22 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-
+    p "*" * 50
+    p params[:trip]
     @current_user = current_user
     @trip = @current_user.trips.new(trip_params)
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render :show, status: :created, location: @trip }
+
+        # format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.json { render json: @trip, status: :created, location: @trip }
       else
         format.html { render :new }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /trips/1
@@ -73,6 +78,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private)
+      params.require(:trip).permit(:name, :description, :budget)
     end
 end
