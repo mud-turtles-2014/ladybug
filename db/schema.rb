@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141016015551) do
 
   create_table "buddies", force: true do |t|
     t.string   "name",       null: false
+    t.integer  "trip_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
