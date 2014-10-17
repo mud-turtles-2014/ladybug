@@ -40,7 +40,7 @@ misc = Category.create(name:"Miscellaneous")
 
 whattaburger = Expense.create(cost:30.50, description:"Lunch at whattaburger", category: food, leg: texan_vacay_1, date: Time.now)
 rodeo = Expense.create(cost:112, description:"Rodeo night show", category: activities, leg: texan_vacay_2, date: Time.now)
-barn = Expense.create(cost:400, description:"Hotel stay at the Barn", category: housing, leg: texan_vacay_3, date: Time.now) 
+barn = Expense.create(cost:400, description:"Hotel stay at the Barn", category: housing, leg: texan_vacay_3, date: Time.now)
 
 sad_happy_masks = Expense.create(cost:44.99, description:"Sad face, happy face wall decor", category: shopping, leg: actors_delight_1, date: Time.now)
 improv_class = Expense.create(cost:432, description:"Week long improv class", category: activities, leg: actors_delight_2, date: Time.now)
