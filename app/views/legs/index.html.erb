@@ -17,7 +17,7 @@
         <td><%= link_to leg.location.name, leg_expenses_path(leg) %></td>
         <td><%= leg.start_date %></td>
         <td><%= leg.end_date %></td>
-        <td><%= leg.trip.name %></td>
+        <td><%= link_to leg.trip.name + " Expenses", trip_expenses_path(@trip) %></td>
         <td><%= link_to 'Edit', edit_leg_path(leg) %></td>
         <td><%= link_to 'Destroy', leg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
