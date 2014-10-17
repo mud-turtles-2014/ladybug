@@ -25,7 +25,8 @@ class BuddiesController < ApplicationController
   # POST /buddies
   # POST /buddies.json
   def create
-    @buddy = Buddy.new(buddy_params)
+    @trip = Trip.find(params[:trip_id])
+    @buddy = @trip.buddies.new(buddy_params)
 
     respond_to do |format|
       if @buddy.save

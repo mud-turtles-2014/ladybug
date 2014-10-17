@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :locations
 
   resources :trips do
+    resources :buddies, shallow: true
     resources :legs, shallow: true do
-    resources :expenses, shallow: true
-  end
+      resources :expenses, shallow: true
+    end
   end
 
   resources :users

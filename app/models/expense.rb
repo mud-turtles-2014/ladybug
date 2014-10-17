@@ -4,4 +4,6 @@ class Expense < ActiveRecord::Base
   has_one :user, through: :leg
   has_many :expense_buddies
   has_many :buddies, through: :expense_buddies
+
+  # accepts_nested_attributes_for :legs, allow_destroy: true
 end
