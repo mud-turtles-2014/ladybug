@@ -26,6 +26,8 @@ class LegsController < ApplicationController
   # POST /legs
   # POST /legs.json
   def create
+    puts "%%%%%" * 10
+    puts "IN LEGS CREATE"
     @trip = Trip.find(params[:trip_id])
     @leg = @trip.legs.new(leg_params)
 
@@ -78,6 +80,6 @@ class LegsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leg_params
-      params.require(:leg).permit(:location_id, :start_date, :end_date)
+      params.require(:leg).permit(:location_id, :start_date, :end_date,expenses_attributes: [:cost, :description, :category_id, :date])
     end
 end
