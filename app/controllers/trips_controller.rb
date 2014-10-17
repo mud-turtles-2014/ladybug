@@ -20,6 +20,8 @@ class TripsController < ApplicationController
     @trip = @current_user.trips.new
     @trip.legs << Leg.new
     @trip.legs.first.expenses << Expense.new
+    @trip.buddies << Buddy.new
+    @trip.buddies.first.expense_buddies << ExpenseBuddy.new
   end
 
   # GET /trips/1/edit
@@ -29,13 +31,13 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-
     @current_user = current_user
     @trip = @current_user.trips.new(trip_params)
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.html { redirect_to edit_trip_path(@trip), notice: 'Trip was successfully created.' }
+        #format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
         format.html { render :new }
@@ -76,6 +78,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private, legs_attributes: [:location_id, :start_date, :end_date, expenses_attributes: [:cost, :description, :category_id, :date]])
+      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private, legs_attributes: [:location_id, :start_date, :end_date, expenses_attributes: [:cost, :description, :category_id, :date, expense_buddies_attributes: [:buddy_id]]], buddies_attributes: [:name])
     end
 end
