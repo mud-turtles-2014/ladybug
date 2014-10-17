@@ -1,0 +1,30 @@
+<h1>Listing legs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Trip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @legs.each do |leg| %>
+      <tr>
+        <td><%= link_to leg.location.name, leg_expenses_path(leg) %></td>
+        <td><%= leg.start_date %></td>
+        <td><%= leg.end_date %></td>
+        <td><%= link_to leg.trip.name + " Expenses", trip_expenses_path(@trip) %></td>
+        <td><%= link_to 'Edit', edit_leg_path(leg) %></td>
+        <td><%= link_to 'Destroy', leg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leg', new_trip_leg_path %>
