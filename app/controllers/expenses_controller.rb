@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :set_leg, only: [:new, :create]
+  before_action :require_login
 
   # GET /expenses
   # GET /expenses.json
