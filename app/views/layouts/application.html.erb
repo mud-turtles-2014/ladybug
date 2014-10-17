@@ -3,12 +3,21 @@
 <head>
   <title>LadyBug</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&;libraries=places"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <% if session[:user_id] %>
+
+      <%= link_to "Create a Trip", new_trip_path %><br>
+      <%= link_to "Log Out", '/logout', method: :delete %>
+    <% else %>
+      <%= link_to "Log In", '/login' %><br>
+      <%= link_to "Sign Up", '/users/new' %>
+      <% end %>
+  </nav>
 
 <%= yield %>
 
