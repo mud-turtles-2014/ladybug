@@ -119,6 +119,25 @@ actors_delight_buddy_2 = Buddy.create(name:"Alex")
 euro_trip_buddy_1 = Buddy.create(name:"Katherine")
 euro_trip_buddy_2 = Buddy.create(name:"Francisco")
 
+pac_trip_buddy_1 = Buddy.create(name:"Rafael")
+pac_trip_buddy_1 = Buddy.create(name:"Imogen")
+
+gb_buddy_1 =Buddy.create(name:"Jessica")
+gb_buddy_1 =Buddy.create(name:"Alyssa")
+
+east_euro_buddy_1=Buddy.create(name:"Marissa")
+east_euro_buddy_1=Buddy.create(name:"Melissa")
+
+rando_buddy_1=Buddy.create(name:"Lloyd")
+rando_buddy_1=Buddy.create(name:"Seamus")
+
+us_states_buddy_1=Buddy.create(name:"Cole")
+us_states_buddy_1=Buddy.create(name:"Nathan")
+
+french_buddy_1=Buddy.create(name:"Austin")
+french_buddy_1=Buddy.create(name:"Christian")
+
+
 ExpenseBuddy.create(buddy: texan_vacay_buddy_1, expense: whattaburger)
 ExpenseBuddy.create(buddy: texan_vacay_buddy_1, expense: rodeo)
 ExpenseBuddy.create(buddy: texan_vacay_buddy_2, expense: rodeo)
@@ -131,3 +150,7 @@ ExpenseBuddy.create(buddy: actors_delight_buddy_2, expense: mcdonalds)
 ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: pasta)
 ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: bungee_jumping)
 ExpenseBuddy.create(buddy: euro_trip_buddy_2, expense: bungee_jumping)
+
+20.times do
+  ExpenseBuddy.create(buddy:Buddy.all.sample, expense: Expense.all.sample)
+end
