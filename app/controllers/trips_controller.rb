@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
+    @current_user = current_user
     @trips = Trip.all
   end
 
@@ -14,7 +15,8 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   def new
-    @trip = Trip.new
+    @current_user = current_user
+    @trip = @current_user.trips.new
   end
 
   # GET /trips/1/edit
@@ -24,7 +26,9 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
+
+    @current_user = current_user
+    @trip = @current_user.trips.new(trip_params)
 
     respond_to do |format|
       if @trip.save
@@ -69,6 +73,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:user_id, :name, :description, :budget, :is_published, :is_private)
+      params.require(:trip).permit(:name, :description, :budget, :is_published, :is_private)
     end
 end

@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @leg %> |
-<%= link_to 'Back', legs_path %>
+<%= link_to 'Back', trip_legs_path(@leg.trip) %>
