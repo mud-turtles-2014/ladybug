@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      redirect_to trips_path
+      redirect_to user_path(@user)
     else
       flash[:login] = "Invalid Credentials"
       redirect_to trips_path
