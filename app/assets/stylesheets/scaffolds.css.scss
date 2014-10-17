@@ -1,9 +1,16 @@
-.profile_body{
+.profile_body_top {
+  float: right;
+  text-align: center;
+  width: 85%;
+  height: 100px;
+  float: top;
+}
+
+.profile_body {
 float: right;
 text-align: center;
-width: 80%;
+width: 85%;
 height: 100%;
-margin-top: 100px;
 }
 
 .tree li ul {

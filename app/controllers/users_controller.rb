@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @trip = Trip.new
     @current_user = current_user
     @trips = @current_user.trips
+    respond_to do |format|
+     format.html #responds with default html file
+     format.js #this will be the javascript file we respond with
+    end
   end
 
   # GET /users/new
