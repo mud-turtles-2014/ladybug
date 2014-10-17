@@ -5,23 +5,23 @@ Rails.application.routes.draw do
 
   resources :categories
 
-
+  resources :trip_expenses, only: [:index], path: '/trips/:id/expenses'
 
   resources :locations
 
   resources :trips do
     resources :legs, shallow: true do
     resources :expenses, shallow: true
-  end  
+  end
   end
 
   resources :users
 
   resources :sessions, only: [:new, :create, :destroy]
-  
+
   post '/login' => 'sessions#create'
   delete '/logout' => "sessions#destroy"
-  
+
   root 'trips#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
