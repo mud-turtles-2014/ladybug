@@ -10,8 +10,8 @@
 </head>
 <body>
   <nav>
+    <%= flash[:error] %>
     <% if session[:user_id] %>
-
       <%= link_to "Create a Trip", new_trip_path %><br>
       <%= link_to "Log Out", '/logout', method: :delete %>
     <% else %>
