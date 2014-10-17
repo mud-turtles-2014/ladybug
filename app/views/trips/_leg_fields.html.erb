@@ -1,0 +1,19 @@
+<fieldset>
+  <div class="field">
+    <%= f.label :location_id %><br>
+    <%= f.text_field :location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <%= f.hidden_field :_destroy %>
+  <%= f.fields_for :expenses do |builder| %>
+    <%= render 'expense_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Expense", f, :expenses %>
+</fieldset>

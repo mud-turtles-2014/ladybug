@@ -27,6 +27,8 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
+    puts "%%%%%" * 10
+    puts "IN EXPENSES CREATE"
     @expense = @leg.expenses.new(expense_params)
 
     respond_to do |format|
