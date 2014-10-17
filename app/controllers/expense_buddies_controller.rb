@@ -1,5 +1,6 @@
 class ExpenseBuddiesController < ApplicationController
   before_action :set_expense_buddy, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /expense_buddies
   # GET /expense_buddies.json

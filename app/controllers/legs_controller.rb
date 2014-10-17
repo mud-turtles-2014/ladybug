@@ -1,5 +1,6 @@
 class LegsController < ApplicationController
   before_action :set_leg, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /legs
   # GET /legs.json

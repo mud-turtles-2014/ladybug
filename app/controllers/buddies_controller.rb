@@ -1,5 +1,6 @@
 class BuddiesController < ApplicationController
   before_action :set_buddy, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /buddies
   # GET /buddies.json
