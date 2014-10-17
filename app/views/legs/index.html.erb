@@ -3,7 +3,7 @@
 <!-- %= search_form_for @search do |f| %>
   <div class="search_results">
     %= f.text_field :name_cont, placeholder: "Location"%><p>
-     %= f.text_field :budget_gteq, placeholder: "Price from" %> - <%= f.text_field :budget_lteq, placeholder: "To" %>
+     %= f.text_field :budget_gteq, placeholder: "Price from" %> - %= f.text_field :budget_lteq, placeholder: "To" %>
   </div>
   <br>
   %= f.submit "Search" %>

@@ -6,9 +6,9 @@ class LegsController < ApplicationController
   # GET /legs.json
   def index
     @trip = Trip.find(params[:trip_id])
-    # @search = @trip.legs.search(params[:q])
+    @search = @trip.legs.search(params[:q])
     @current_user = current_user
-    # @legs = @search.result
+    @legs = @search.result
   end
 
   # GET /legs/1
