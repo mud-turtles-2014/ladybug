@@ -30,13 +30,13 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-
     @current_user = current_user
     @trip = @current_user.trips.new(trip_params)
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.html { redirect_to edit_trip_path(@trip), notice: 'Trip was successfully created.' }
+        #format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
         format.html { render :new }
