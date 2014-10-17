@@ -4,6 +4,7 @@
   <title>LadyBug</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&;libraries=places"></script>
+  <script src="/jquery.geocomplete.min.js"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,7 +15,11 @@
       <%= link_to "Create a Trip", new_trip_path %><br>
       <%= link_to "Log Out", '/logout', method: :delete %>
     <% else %>
-      <%= link_to "Log In", '/login' %><br>
+      <%= form_for :session, url: '/login' do |f| %>
+        <%= f.text_field :username, placeholder: "Username" %><br>
+        <%= f.password_field :password, placeholder: "Password" %><br>
+        <%= f.submit "Log In" %>
+        <% end %>
       <%= link_to "Sign Up", '/users/new' %>
       <% end %>
   </nav>
