@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -22,6 +23,9 @@
     <%= f.label :budget %><br>
     <%= f.number_field :budget %>
   </div>
+
+  <%= link_to_add_fields "Add Location", f, :legs %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
