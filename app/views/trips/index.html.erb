@@ -2,13 +2,22 @@
 
 <h1>Listing trips</h1>
 
+<%= search_form_for @search do |f| %>
+  <div class="search_results">
+    <%= f.text_field :name_cont, placeholder: "Location"%><p>
+     <%= f.text_field :budget_gteq, placeholder: "Price from" %> - <%= f.text_field :budget_lteq, placeholder: "To" %>
+  </div>
+  <br>
+  <%= f.submit "Search" %>
+<% end %>
+<br>
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Budget</th>
+      <th><%= sort_link @search, :user, "User" %></th>
+      <th><%= sort_link @search, :name, "Name" %></th>
+      <th><%= sort_link @search, :description, "Description" %></th>
+      <th><%= sort_link @search, :budget, "Budget" %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
