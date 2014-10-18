@@ -50,9 +50,9 @@ munich = Location.create(name:"Munich Germany")
 cairo = Location.create(name:"Cairo Egypt")
 budapest = Location.create(name:"Budapest Hungary")
 
-30.times do
-  Leg.create(location: Location.all.sample, trip: Trip.all.sample, start_date: Time.now, end_date: Time.now)
-end
+# 30.times do
+#   Leg.create(location: Location.all.sample, trip: Trip.all.sample, start_date: Time.now, end_date: Time.now)
+# end
 
 # texan_vacay_1 = Leg.create(location: houston, trip: texan_vacay, start_date: Time.now, end_date: Time.now)
 # texan_vacay_2 = Leg.create(location: austin, trip: texan_vacay, start_date: Time.now, end_date: Time.now)
@@ -111,50 +111,50 @@ misc = Category.create(name:"Miscellaneous")
 # bungee_jumping = Expense.create(cost:49.59, description:"Bungee jumping from the colleseum - bad call", category: food, leg: euro_trip_3, date: Time.now)
 
 100.times do
-  Expense.create(cost: 24.99, description:"Test", category: Category.all.sample, leg: Leg.all.sample, date: Time.now)
+  Expense.create(cost: 24.99, description:"Test", category: Category.all.sample, location: Location.all.sample, date: Time.now)
 end
 
-texan_vacay_buddy_1 = Buddy.create(name:"Steph")
-texan_vacay_buddy_2 = Buddy.create(name:"Anthony")
+# texan_vacay_buddy_1 = Buddy.create(name:"Steph")
+# texan_vacay_buddy_2 = Buddy.create(name:"Anthony")
 
-actors_delight_buddy_1 = Buddy.create(name:"Chris")
-actors_delight_buddy_2 = Buddy.create(name:"Alex")
+# actors_delight_buddy_1 = Buddy.create(name:"Chris")
+# actors_delight_buddy_2 = Buddy.create(name:"Alex")
 
-euro_trip_buddy_1 = Buddy.create(name:"Katherine")
-euro_trip_buddy_2 = Buddy.create(name:"Francisco")
+# euro_trip_buddy_1 = Buddy.create(name:"Katherine")
+# euro_trip_buddy_2 = Buddy.create(name:"Francisco")
 
-pac_trip_buddy_1 = Buddy.create(name:"Rafael")
-pac_trip_buddy_1 = Buddy.create(name:"Imogen")
+# pac_trip_buddy_1 = Buddy.create(name:"Rafael")
+# pac_trip_buddy_1 = Buddy.create(name:"Imogen")
 
-gb_buddy_1 = Buddy.create(name:"Jessica")
-gb_buddy_1 = Buddy.create(name:"Alyssa")
+# gb_buddy_1 = Buddy.create(name:"Jessica")
+# gb_buddy_1 = Buddy.create(name:"Alyssa")
 
-east_euro_buddy_1 = Buddy.create(name:"Marissa")
-east_euro_buddy_1 = Buddy.create(name:"Melissa")
+# east_euro_buddy_1 = Buddy.create(name:"Marissa")
+# east_euro_buddy_1 = Buddy.create(name:"Melissa")
 
-rando_buddy_1 = Buddy.create(name:"Lloyd")
-rando_buddy_1 = Buddy.create(name:"Seamus")
+# rando_buddy_1 = Buddy.create(name:"Lloyd")
+# rando_buddy_1 = Buddy.create(name:"Seamus")
 
-us_states_buddy_1 = Buddy.create(name:"Cole")
-us_states_buddy_1 = Buddy.create(name:"Nathan")
+# us_states_buddy_1 = Buddy.create(name:"Cole")
+# us_states_buddy_1 = Buddy.create(name:"Nathan")
 
-french_buddy_1 = Buddy.create(name:"Austin")
-french_buddy_1 = Buddy.create(name:"Christian")
+# french_buddy_1 = Buddy.create(name:"Austin")
+# french_buddy_1 = Buddy.create(name:"Christian")
 
 
-ExpenseBuddy.create(buddy: texan_vacay_buddy_1, expense: Expense.all.sample)
-ExpenseBuddy.create(buddy: texan_vacay_buddy_1, expense: Expense.all.sample)
-ExpenseBuddy.create(buddy: texan_vacay_buddy_2, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: texan_vacay_buddy_1, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: texan_vacay_buddy_1, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: texan_vacay_buddy_2, expense: Expense.all.sample)
 
-ExpenseBuddy.create(buddy: actors_delight_buddy_1, expense: Expense.all.sample)
-ExpenseBuddy.create(buddy: actors_delight_buddy_2, expense: Expense.all.sample)
-ExpenseBuddy.create(buddy: actors_delight_buddy_1, expense: Expense.all.sample)
-ExpenseBuddy.create(buddy: actors_delight_buddy_2, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: actors_delight_buddy_1, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: actors_delight_buddy_2, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: actors_delight_buddy_1, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: actors_delight_buddy_2, expense: Expense.all.sample)
 
-ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: Expense.all.sample)
-ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: Expense.all.sample)
-ExpenseBuddy.create(buddy: euro_trip_buddy_2, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: euro_trip_buddy_1, expense: Expense.all.sample)
+# ExpenseBuddy.create(buddy: euro_trip_buddy_2, expense: Expense.all.sample)
 
-20.times do
-  ExpenseBuddy.create(buddy: Buddy.all.sample, expense: Expense.all.sample)
-end
+# 20.times do
+#   ExpenseBuddy.create(buddy: Buddy.all.sample, expense: Expense.all.sample)
+# end

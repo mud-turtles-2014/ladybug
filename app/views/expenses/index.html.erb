@@ -7,7 +7,6 @@
       <th>Description</th>
       <th>Category</th>
       <th>Date</th>
-      <th>Leg</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -19,7 +18,7 @@
         <td><%= link_to expense.description, expense_path(expense) %></td>
         <td><%= expense.category.name %></td>
         <td><%= expense.date %></td>
-        <td><%= expense.leg.location.name %></td>
+        <td><%= expense.location.name %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

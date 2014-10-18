@@ -1,13 +1,13 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
-  before_action :set_leg, only: [:new, :create]
+  before_action :set_location, only: [:new, :create]
   before_action :require_login
 
   # GET /expenses
   # GET /expenses.json
   def index
-    @leg = Leg.find(params[:leg_id])
-    @expenses = @leg.expenses.all
+    @trip = Trip.find(params[:trip_id])
+    @expenses = @trip.expenses.all
   end
 
   # GET /expenses/1
@@ -27,9 +27,8 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    puts "%%%%%" * 10
-    puts "IN EXPENSES CREATE"
-    @expense = @leg.expenses.new(expense_params)
+    #@trip = Trip.find(params[:trip_id])
+    @expense = @trip.expenses.new(expense_params)
 
     respond_to do |format|
       if @expense.save
@@ -73,8 +72,8 @@ class ExpensesController < ApplicationController
       @expense = Expense.find(params[:id])
     end
 
-    def set_leg
-      @leg = Leg.find(params[:leg_id])
+    def set_trip
+      @trip = Trip.find(params[:trip_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016015551) do
+ActiveRecord::Schema.define(version: 20141016015431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "buddies", force: true do |t|
-    t.string   "name",       null: false
-    t.integer  "trip_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "categories", force: true do |t|
     t.string   "name",       null: false
@@ -29,40 +22,18 @@ ActiveRecord::Schema.define(version: 20141016015551) do
     t.datetime "updated_at"
   end
 
-  create_table "expense_buddies", force: true do |t|
-    t.integer  "buddy_id",   null: false
-    t.integer  "expense_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "expense_buddies", ["buddy_id"], name: "index_expense_buddies_on_buddy_id", using: :btree
-  add_index "expense_buddies", ["expense_id"], name: "index_expense_buddies_on_expense_id", using: :btree
-
   create_table "expenses", force: true do |t|
     t.float    "cost",        null: false
     t.text     "description", null: false
     t.integer  "category_id", null: false
     t.date     "date",        null: false
-    t.integer  "leg_id",      null: false
+    t.integer  "location_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "expenses", ["category_id"], name: "index_expenses_on_category_id", using: :btree
-  add_index "expenses", ["leg_id"], name: "index_expenses_on_leg_id", using: :btree
-
-  create_table "legs", force: true do |t|
-    t.integer  "location_id", null: false
-    t.date     "start_date",  null: false
-    t.date     "end_date",    null: false
-    t.integer  "trip_id",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "legs", ["location_id"], name: "index_legs_on_location_id", using: :btree
-  add_index "legs", ["trip_id"], name: "index_legs_on_trip_id", using: :btree
+  add_index "expenses", ["location_id"], name: "index_expenses_on_location_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name",       null: false

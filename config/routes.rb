@@ -1,19 +1,10 @@
 Rails.application.routes.draw do
-  resources :expense_buddies
-
-  resources :buddies
-
   resources :categories
-
-  resources :trip_expenses, only: [:index], path: '/trips/:id/expenses'
 
   resources :locations
 
   resources :trips do
-    resources :buddies, shallow: true
-    resources :legs, shallow: true do
       resources :expenses, shallow: true
-    end
   end
 
   resources :users

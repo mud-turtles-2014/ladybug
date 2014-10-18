@@ -4,7 +4,7 @@
 
 <%= search_form_for @search do |f| %>
   <div class="search_results">
-    <%= f.text_field :legs_location_name_cont, placeholder: "Location"%><p>
+    <%= f.text_field :name_cont, placeholder: "Location"%><p>
      <%= f.text_field :budget_gteq, placeholder: "Price from" %> - <%= f.text_field :budget_lteq, placeholder: "To" %>
   </div>
   <br>
@@ -26,7 +26,7 @@
     <% @trips.each do |trip| %>
       <tr>
         <td><%= trip.user.username %></td>
-        <td><%= link_to trip.name, trip_legs_path(trip) %></td>
+        <td><%= link_to trip.name, trip_path(trip) %></td>
         <td><%= trip.description %></td>
         <td><%= trip.budget %></td>
         <td><%= link_to 'Edit', edit_trip_path(trip) %></td>

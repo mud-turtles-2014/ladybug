@@ -20,10 +20,5 @@
   <%= @expense.date %>
 </p>
 
-<p>
-  <strong>Leg:</strong>
-  <%= @expense.leg.location.name %>
-</p>
-
 <%= link_to 'Edit', edit_expense_path(@expense) %> |
-<%= link_to 'Back', leg_expenses_path(@expense.leg) %>
+<%= link_to 'Back', trip_expenses_path(@expense.trip) %>
